@@ -3,24 +3,28 @@ import leafmap.foliumap as leafmap
 
 st.set_page_config(layout="wide")
 
-markdown = """
-Web App URL: <https://geotemplate.streamlit.app>
-GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
-"""
+# markdown = """
+# Web App URL: <https://geotemplate.streamlit.app>
+# GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
+# """
 
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
+#st.sidebar.title("About")
+#st.sidebar.info(markdown)
+#logo = "https://i.imgur.com/UbOXYAU.png"
+#st.sidebar.image(logo)
 
 st.title("Split-panel Map")
 
-with st.expander("See source code"):
-    with st.echo():
-        m = leafmap.Map()
-        m.split_map(
-            left_layer='ESA WorldCover 2020 S2 FCC', right_layer='ESA WorldCover 2020'
-        )
-        m.add_legend(title='ESA Land Cover', builtin_legend='ESA_WorldCover')
+# with st.expander("See source code"):
+# with st.echo():
+m = leafmap.Map()
+        #m = leafmap.Map(center=[50, -110], zoom=2)
+polygons = '/Users/macbook/anaconda3/challenge_project/pages/geofile/data.geojson'
+m.add_geojson(polygons, layer_name="Countries")
+        #m.to_streamlit(height=700)
+m.split_map(
+    left_layer='ESA WorldCover 2020 S2 FCC', right_layer='ESA WorldCover 2020'
+)
+m.add_legend(title='ESA Land Cover', builtin_legend='ESA_WorldCover')
 
 m.to_streamlit(height=700)

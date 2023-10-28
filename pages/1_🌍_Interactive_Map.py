@@ -6,10 +6,10 @@ Web App URL: <https://geotemplate.streamlit.app>
 GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
 """
 
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
+#st.sidebar.title("About")
+#st.sidebar.info(markdown)
+#logo = "https://i.imgur.com/UbOXYAU.png"
+#st.sidebar.image(logo)
 
 
 st.title("Interactive Map")
@@ -25,6 +25,11 @@ with col2:
 
 with col1:
 
-    m = leafmap.Map(locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
-    m.add_basemap(basemap)
+    m = leafmap.Map(center=[50, -110], zoom=2)
+    polygons = '/Users/macbook/anaconda3/challenge_project/pages/geofile/data.geojson'
+    m.add_geojson(polygons, layer_name="Countries")
     m.to_streamlit(height=700)
+
+    #m = leafmap.Map(locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
+    #m.add_basemap(basemap)
+    #m.to_streamlit(height=700)
