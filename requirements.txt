@@ -6,4 +6,10 @@ leafmap
 nbserverproxy
 owslib
 streamlit
+pandas
+numpy
+matplotlib
+seaborn
+sklearn
+xgboost
 
