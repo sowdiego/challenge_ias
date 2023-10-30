@@ -13,9 +13,9 @@ from xgboost import XGBRegressor
 import streamlit as st 
 
 
-
+st.set_page_config(layout="wide")
 df = pd.read_excel("./SEN.xlsx", sheet_name="Subnational 2 carbon data")
-st.write(df.head())
+# st.write(df.head())
 
 df.describe()
 
@@ -23,6 +23,14 @@ df.describe()
 df.rename(columns={"country":"pays", "subnational1":"region", "subnational2":"departement"}, inplace=True)
 
 mask = df.isnull()
+
+
+region_choose = st.sidebar.multiselect(
+    "Sélectionner une Région:",
+    options=df["region"].unique(),
+    default=df["region"].unique()[0]
+)
+# st.write(region_choose)
 
 plt.figure(figsize=(14,7))
 sns.heatmap(mask)
@@ -52,8 +60,8 @@ df.drop(columns=names_emissions, axis=1, inplace=True)
 y = df["taux_emissions_co2"]
 
 X = df.drop(columns=["taux_emissions_co2","pays"], axis=1)
-st.write(X)
-st.write(y)
+# st.write(X)
+# st.write(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y , test_size=0.15)
 
@@ -71,13 +79,16 @@ model.fit(X_train, y_train)
 #y_test_2D = y_test.reshape(-1, 1)
 test = np.array(X_test, y_test)
 
-st.write(test)
+# st.write(test)
 
-st.write(model.score(X_test, y_test))
+# st.write(model.score(X_test, y_test))
 
 predict = model.predict(test)
 
-st.write("Prediction---: ",predict)
+results = pd.DataFrame({'Vraies Valeurs (y_test)': y_test, 'Prédictions': predict})
+# st.write(results)
+
+st.sidebar.write("Moyenne Prédite : ",round(predict.mean(), 2))
 
 
 
