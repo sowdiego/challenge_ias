@@ -10,8 +10,8 @@ st.set_page_config(layout="wide")
 st.title("Autres visualisations")
 
 # Charger mes données 
-carbon_data = pd.read_excel('../tree-cover dataset.xlsx', sheet_name=6)
-tc_data = pd.read_excel('../tree-cover dataset.xlsx', sheet_name=5)
+carbon_data = pd.read_excel('./SEN.xlsx', sheet_name=6)
+tc_data = pd.read_excel('./SEN.xlsx', sheet_name=5)
 
 # Sidebar
 # subnational1_filter = st.sidebar.multiselect("Filtrer par Région", carbon_data["subnational1"].unique())
