@@ -19,7 +19,7 @@ st.markdown(text_indication)
 
 
 tableau_dashboard_code2 = """
-        <iframe src="https://public.tableau.com/views/competion_ias/EvolutionCO2etpertecouvertureforestiere?:language=fr-FR&:display_count=n&:origin=viz_share_link&:showVizHome=no&:embed=true" width="100%" height="700" frameborder="0"></iframe>
+        <iframe src="https://public.tableau.com/views/challenge_ias_16985824084640/evolution_temporelle_tc_cO2?:language=fr-FR&:display_count=n&:origin=viz_share_link&:showVizHome=no&:embed=true" width="100%" height="700" frameborder="0"></iframe>
 """
 
 

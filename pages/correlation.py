@@ -19,7 +19,7 @@ st.markdown(text_indication)
 
 
 tableau_dashboard_code3 = """
-        <iframe src="https://public.tableau.com/views/competion_ias/CorrelationentreEmissionCO2etPertedeCV?:language=fr-FR&:display_count=n&:origin=viz_share_link&:showVizHome=no&:embed=true" width="100%" height="700" frameborder="0"></iframe>
+        <iframe src="https://public.tableau.com/views/challenge_ias_16985824084640/correlation_tc_cO2?:language=fr-FR&:display_count=n&:origin=viz_share_link&:showVizHome=no&:embed=true" width="100%" height="700" frameborder="0"></iframe>
 """
 
 st.markdown(tableau_dashboard_code3, unsafe_allow_html=True)
