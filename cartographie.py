@@ -87,9 +87,9 @@ mean = round(predict.mean(), 2)
 
 left_column,center_column = st.columns(2)
 with left_column:
-    st.title("Prédiction du taux du taux de co2 : ")
+    st.title("Prédiction du taux de co2: ")
 with center_column:
-        st.title(mean)
+        st.title(str(mean)+" Mg_CO2e")
 # with right_column:
 #         st.title("")
 
